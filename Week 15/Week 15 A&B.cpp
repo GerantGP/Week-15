@@ -1,45 +1,92 @@
-CharacterOffSet.cpp->
+// Grant Harsch
+//CIS 1202 101
+//December 5, 2024
 
-#include<bits/stdc++.h>
-using namespace std;
+#include "PersonalLib.h"
 
+//prototype to see character function
+char character(char, int);
 
-char character(char start, int offset) {
-    // check if the argument start is a character or not
-    // if not character throw an exception
-    if (start < 'A' or (start > 'Z' and start < 'a') or start > 'z')
-        throw "invalidCharacterException";
-    // calculate the target character
-    char target = start + offset;
-    // check if the target is a character or not
-    // if not character throw an exception
-    if (target < 'A' or (target > 'Z' and target < 'a') or target > 'z')
-        throw "invalidRangeException";
-    // check if the given character and target character in the same case
-    // if both are in differnt case
-    // throw an exception
-    if (!((isupper(start) == 0) ^ (islower(target) == 0)))
-        throw "upperLowerExcetion";
-    // if no exception are matched
-    // return the target character
-    return target;
+//Template for writing code
+template <typename T>
+T half(T val) {
+
+    T res;
+
+    //Dividing
+    res = val / 2;
+
+    //Since val will keep it's typing such as int, then the only way for res*2 to not equal val is if it's an int and dropped the decimal
+    //I will admit though I am confused on why in tips it says to use static_cast, when I feel like this is a simpler way to do the math.
+        if (res * 2 != val) {
+            res++;
+        }
+    
+
+    return res;//returning the half value
+
 }
 
-
-
-/// Testing 
+//Start of program
 int main() {
 
+    
+    // A partt of assignment
+    
+    //Will attemp to try 
     try {
         char ch = character('a', 1);
         cout << ch << endl;
+
         ch = character('a', -1);
         cout << ch << endl;
-        ch = character('A', 32);
+
+        ch = character('Z', -1);
+        cout << ch << endl;
+
+        ch = character('?', 32);
         cout << ch << endl;
     }
     catch (const char* msg) {
         cout << msg << endl;
     }
 
+
+        //B Part of assignment
+
+    //different variable types to show template working
+        int a = 3;
+        float b = 2.5;
+        double c = 3.5;
+
+
+        //cout's for printing half the value of the variables
+        cout << "Half values of : \n";
+        cout << "\n" << a << " half of this is: " << half(a);
+        cout << "\n" << b << " half of this is: " << half(b);
+        cout << "\n" << c << " half of this is: " << half(c);
+
+    
+
+        //end of program
+        return 0;
 }
+
+//
+char character(char start, int offset) {
+    
+    char charReturn = start + offset;
+
+    if (start < 'A' || start > 'Z' && start < 'a' || start > 'z')
+        throw "invalidCharacterException";
+    
+    if (charReturn < 'A' || charReturn > 'Z' && charReturn < 'a' || charReturn > 'z')
+        throw "invalidRangeException";
+
+
+    
+   
+    
+    return charReturn;
+}
+

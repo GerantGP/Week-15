@@ -129,6 +129,9 @@
   <ItemGroup>
     <ClCompile Include="Week 15 A&amp;B.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="PersonalLib.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
