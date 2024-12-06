@@ -38,6 +38,7 @@ int main() {
         char ch = character('a', 1);
         cout << ch << endl;
 
+        //Have to comment this one out, since it will thorugh an excpetion ended the try to see the other function calls reuturn other answers
         ch = character('a', -1);
         cout << ch << endl;
 
